@@ -3,3 +3,12 @@ fancy_echo "Installing Heroku CLI client ..."
 
 fancy_echo "Installing the heroku-config plugin to pull config variables locally to be used as ENV variables ..."
   heroku plugins:install git://github.com/ddollar/heroku-config.git
+
+fancy_echo "Installing the heroku-accounts plugin to allow you to have personal heroku accounts."
+  heroku plugins:install git://github.com/ddollar/heroku-accounts.git
+    
+fancy_echo "Installing the heroku-pg-extras plugin to allow "
+  heroku plugins:install git://github.com/heroku/heroku-pg-extras.git
+
+fancy_echo "Installing the heroku-pg-transfer plugin to allow pulling DBs from apps."
+  heroku plugins:install https://github.com/ddollar/heroku-pg-transfer
