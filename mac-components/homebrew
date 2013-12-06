@@ -1,6 +1,8 @@
-if (( ! $+commands[brew] )); then
+brew=`which brew`
+
+if [ -z "$brew" ]; then
   fancy_echo "Installing Homebrew, a good OS X package manager ..."
-    ruby <(curl -fsS https://raw.github.com/mxcl/homebrew/go/install)
+    ruby -e "$(curl -fsSL https://raw.github.com/mxcl/homebrew/go/install)"
     brew update
 
   if ! grep -qs "recommended by brew doctor" ~/.zshrc; then
@@ -11,4 +13,7 @@ if (( ! $+commands[brew] )); then
   fi
 else
   fancy_echo "Homebrew already installed. Skipping ..."
+  
+  fancy_echo "Updating Homebrew"
+      brew update
 fi
