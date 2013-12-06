@@ -1,9 +1,8 @@
 fancy_echo "Installing Ruby 2.0.0-p353 ..."
-  rbenv install 2.0.0-p353
+  rvm install 2.0.0-p353
 
 fancy_echo "Setting Ruby 2.0.0-p353 as global default Ruby ..."
-  rbenv global 2.0.0-p353
-  rbenv rehash
+  rvm --default use 2.0.0-p353
 
 fancy_echo "Updating to latest Rubygems version ..."
   gem update --system
