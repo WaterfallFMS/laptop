@@ -12,6 +12,12 @@ fancy_echo "Installing Bundler to install project-specific Ruby gems ..."
 
 fancy_echo "Installing Rails ..."
   gem install rails --no-document
+  
+fancy_echo "Installing Powder ..."
+  gem install powder
+
+fancy_echo "Installing Foreman ..."
+  gem install foreman
 
 fancy_echo "Installing GitHub CLI client ..."
   curl http://hub.github.com/standalone -sLo ~/.bin/hub
