@@ -55,17 +55,19 @@ What it sets up
 
 * Bundler gem for managing Ruby libraries
 * Exuberant Ctags for indexing files for vim tab completion
-* Foreman gem for serving Rails apps locally
+* Pow for serving Rails apps locally
 * Heroku Config plugin for local `ENV` variables
 * Heroku Toolbelt for interacting with the Heroku API
 * Hub gem for interacting with the GitHub API
 * Homebrew for managing operating system libraries (OS X only)
 * ImageMagick for cropping and resizing images
-* Postgres for storing relational data
+* OpenSSL for security
+* Postgres.app for storing relational data
 * Qt for headless JavaScript testing via Capybara Webkit
 * Rails gem for writing web applications
-* Rbenv for managing versions of the Ruby programming language
+* RVM for managing versions of the Ruby programming language
 * Redis for storing key-value data
+* Memcached for Rails caching
 * Ruby Build for installing Rubies
 * Ruby stable for writing general-purpose code
 * The Silver Searcher for finding things in files
