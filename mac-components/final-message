@@ -1,0 +1,11 @@
+# postgresql: get the Postgresql app
+fancy_echo "Install Postgresql app manually from the URL"
+    echo "$ open http://postgresapp.com/"
+
+# heroku accounts set default app
+facy_echo "Setup up heroku for you work account"
+    echo "$ heroku accounts:add work --auto"
+    echo "$ heroku accounts:default work"
+
+echo
+echo
