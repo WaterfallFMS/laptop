@@ -16,10 +16,6 @@ For Lion (10.7) or Mountain Lion (10.8): use [Command Line Tools for XCode](http
 
 For Mavericks (10.9): run `xcode-select --install` in your terminal and then click "Install".
 
-2) Set zsh as your login shell:
-
-    chsh -s /bin/zsh
-
 ### Linux
 
 We support:
@@ -42,7 +38,7 @@ Install
 
 Read, then run the script:
 
-    zsh <(curl -s https://raw.github.com/thoughtbot/laptop/master/mac)
+    curl -s https://raw.github.com/thoughtbot/laptop/master/mac | sh
 
 ### Linux
 
@@ -79,12 +75,11 @@ It should take less than 15 minutes to install (depends on your machine).
 Credits
 -------
 
-![thoughtbot](http://thoughtbot.com/assets/tm/logo.png)
+Thank you, [contributors](https://github.com/WaterfallFMS/guides/graphs/contributors)!
 
-Laptop is maintained and funded by [thoughtbot, inc](http://thoughtbot.com/community).
-The names and logos for thoughtbot are trademarks of thoughtbot, inc.
+![Waterfall Software](http://www.waterfallsoftware.com/sites/default/files/waterfall-logo.png)
 
-Thank you, [contributors](https://github.com/thoughtbot/laptop/graphs/contributors)!
+This is maintained by [waterfall software, inc](http://www.waterfallsoftware.com/).
 
 Contributing
 ------------
