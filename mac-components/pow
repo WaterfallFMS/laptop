@@ -1,0 +1,2 @@
+fancy_echo "Installing Pow ..."
+  curl get.pow.cx | sh  
