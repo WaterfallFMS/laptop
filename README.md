@@ -38,13 +38,13 @@ Install
 
 Read, then run the script:
 
-    curl -s https://raw.github.com/thoughtbot/laptop/master/mac | sh
+    curl -s https://raw.github.com/WaterfallFMS/laptop/master/mac | bash -l
 
 ### Linux
 
 Read, then run the script:
 
-    zsh <(wget -qO- https://raw.github.com/thoughtbot/laptop/master/linux)
+    zsh <(wget -qO- https://raw.github.com/WaterfallFMS/laptop/master/linux)
 
 What it sets up
 ---------------
