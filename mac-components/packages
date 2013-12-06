@@ -1,7 +1,7 @@
-fancy_echo "Installing Postgres, a good open source relational database ..."
-  brew install postgres --no-python
-  initdb /usr/local/var/postgres -E utf8
-
+# fancy_echo "Installing Postgres, a good open source relational database ..."
+  # brew install postgres --no-python
+  # initdb /usr/local/var/postgres -E utf8
+  
 fancy_echo "Installing Redis, a good key-value database ..."
   brew install redis
 
@@ -28,3 +28,6 @@ fancy_echo "Installing QT, used by Capybara Webkit for headless Javascript integ
 
 fancy_echo "Installing watch, to execute a program periodically and show the output ..."
   brew install watch
+
+fancy_echo "Installing memcached, to allow rails caching ..."
+  brew install memcached
