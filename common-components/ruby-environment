@@ -1,8 +1,10 @@
+ruby="2.0.0-p353"
+
 fancy_echo "Installing Ruby 2.0.0-p353 ..."
-  rvm install 2.0.0-p353
+  rvm install $ruby
 
 fancy_echo "Setting Ruby 2.0.0-p353 as global default Ruby ..."
-  rvm --default use 2.0.0-p353
+  rvm --default use $ruby
 
 fancy_echo "Updating to latest Rubygems version ..."
   gem update --system
@@ -13,11 +15,17 @@ fancy_echo "Installing Bundler to install project-specific Ruby gems ..."
 fancy_echo "Installing Rails ..."
   gem install rails --no-document
   
+# switch to global gemset for these
+  rvm use ${ruby}@global
+  
 fancy_echo "Installing Powder ..."
   gem install powder
 
 fancy_echo "Installing Foreman ..."
   gem install foreman
+
+# switch back
+  rvm use default
 
 fancy_echo "Installing GitHub CLI client ..."
   curl http://hub.github.com/standalone -sLo ~/.bin/hub
