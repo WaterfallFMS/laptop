@@ -81,7 +81,8 @@ fancy_echo "Installing watch, to execute a program periodically and show the out
   brew install watch
 
 fancy_echo "Installing memcached, to allow rails caching ..."
-  brew install memcached### end mac-components/packages
+  brew install memcached
+### end mac-components/packages
 
 fancy_echo "Installing Pow ..."
   curl get.pow.cx | sh  
@@ -92,7 +93,7 @@ fancy_echo "Installing rvm, to change Ruby versions ..."
 ### end common-components/rvm
 
 fancy_echo "Installing GNU Compiler Collection, a necessary prerequisite to installing Ruby ..."
-  brew tap homebrew/dupes
+  (brew tap homebrew/dupes)
   brew install apple-gcc42
 
 fancy_echo "Upgrading and linking OpenSSL ..."
@@ -157,7 +158,19 @@ fancy_echo "Installing the heroku-pg-transfer plugin to allow pulling DBs from a
 ### end mac-components/heroku
 
 fancy_echo "Installing rcm, to manage your dotfiles ..."
-  brew tap mike-burns/rcm
+  (brew tap mike-burns/rcm)
   brew install rcm
 ### end mac-components/rcm
+
+# postgresql: get the Postgresql app
+fancy_echo "Install Postgresql app manually from the URL"
+    echo "$ open http://postgresapp.com/"
+
+# heroku accounts set default app
+fancy_echo "Setup up heroku for you work account"
+    fancy_echo "$ heroku accounts:add work --auto"
+    fancy_echo "$ heroku accounts:default work"
+
+fancy_echo ""
+fancy_echo ""### end mac-components/final-message
 
