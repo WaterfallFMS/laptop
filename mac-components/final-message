@@ -3,9 +3,9 @@ fancy_echo "Install Postgresql app manually from the URL"
     echo "$ open http://postgresapp.com/"
 
 # heroku accounts set default app
-facy_echo "Setup up heroku for you work account"
-    echo "$ heroku accounts:add work --auto"
-    echo "$ heroku accounts:default work"
+fancy_echo "Setup up heroku for you work account"
+    fancy_echo "$ heroku accounts:add work --auto"
+    fancy_echo "$ heroku accounts:default work"
 
-echo
-echo
+fancy_echo ""
+fancy_echo ""
