@@ -1,5 +1,5 @@
-#!/usr/bin/env zsh
-### end common-components/zsh-shebang
+#!/bin/sh
+### end common-components/sh-shebang
 
 # Welcome to the thoughtbot laptop script! Be prepared to turn your laptop (or
 # desktop, no haters here) into an awesome development machine.
@@ -18,8 +18,8 @@ if [ ! -d "$HOME/.bin/" ]; then
 fi
 
 if [[ ":$PATH:" != *":$HOME/.bin:"* ]]; then
-  echo 'export PATH="$HOME/.bin:$PATH"' >> ~/.zshrc
-  source ~/.zshrc
+  echo 'export PATH="$HOME/.bin:$PATH"' >> ~/.bash_profile
+  source ~/.bash_profile
 fi
 ### end common-components/check-home-bin
 
@@ -28,15 +28,11 @@ fancy_echo() {
 }
 ### end common-components/shared-functions
 
-if [[ -f /etc/zshenv ]]; then
-  fancy_echo "Fixing OSX zsh environment bug ..."
-    sudo mv /etc/{zshenv,zshrc}
-fi
-### end mac-components/zsh-fix
+brew=`which brew`
 
-if (( ! $+commands[brew] )); then
+if [ -z "$brew" ]; then
   fancy_echo "Installing Homebrew, a good OS X package manager ..."
-    ruby <(curl -fsS https://raw.github.com/mxcl/homebrew/go/install)
+    ruby -e "$(curl -fsSL https://raw.github.com/mxcl/homebrew/go/install)"
     brew update
 
   if ! grep -qs "recommended by brew doctor" ~/.zshrc; then
@@ -47,13 +43,16 @@ if (( ! $+commands[brew] )); then
   fi
 else
   fancy_echo "Homebrew already installed. Skipping ..."
+  
+  fancy_echo "Updating Homebrew"
+      brew update
 fi
 ### end mac-components/homebrew
 
-fancy_echo "Installing Postgres, a good open source relational database ..."
-  brew install postgres --no-python
-  initdb /usr/local/var/postgres -E utf8
-
+# fancy_echo "Installing Postgres, a good open source relational database ..."
+  # brew install postgres --no-python
+  # initdb /usr/local/var/postgres -E utf8
+  
 fancy_echo "Installing Redis, a good key-value database ..."
   brew install redis
 
@@ -80,26 +79,17 @@ fancy_echo "Installing QT, used by Capybara Webkit for headless Javascript integ
 
 fancy_echo "Installing watch, to execute a program periodically and show the output ..."
   brew install watch
-### end mac-components/packages
 
-fancy_echo "Installing rbenv, to change Ruby versions ..."
-  brew install rbenv
+fancy_echo "Installing memcached, to allow rails caching ..."
+  brew install memcached### end mac-components/packages
 
-  if ! grep -qs "rbenv init" ~/.zshrc; then
-    echo 'eval "$(rbenv init - --no-rehash)"' >> ~/.zshrc
+fancy_echo "Installing Pow ..."
+  curl get.pow.cx | sh  
+### end mac-components/pow
 
-    fancy_echo "Enable shims and autocompletion ..."
-      eval "$(rbenv init -)"
-  fi
-
-  source ~/.zshrc
-
-fancy_echo "Installing rbenv-gem-rehash so the shell automatically picks up binaries after installing gems with binaries..."
-  brew install rbenv-gem-rehash
-
-fancy_echo "Installing ruby-build, to install Rubies ..."
-  brew install ruby-build
-### end mac-components/rbenv
+fancy_echo "Installing rvm, to change Ruby versions ..."
+  curl -sSL https://get.rvm.io | bash -s stable
+### end common-components/rvm
 
 fancy_echo "Installing GNU Compiler Collection, a necessary prerequisite to installing Ruby ..."
   brew tap homebrew/dupes
@@ -111,12 +101,13 @@ fancy_echo "Upgrading and linking OpenSSL ..."
 export CC=gcc-4.2
 ### end mac-components/compiler-and-libraries
 
+ruby="2.0.0-p353"
+
 fancy_echo "Installing Ruby 2.0.0-p353 ..."
-  rbenv install 2.0.0-p353
+  rvm install $ruby
 
 fancy_echo "Setting Ruby 2.0.0-p353 as global default Ruby ..."
-  rbenv global 2.0.0-p353
-  rbenv rehash
+  rvm --default use $ruby
 
 fancy_echo "Updating to latest Rubygems version ..."
   gem update --system
@@ -126,6 +117,18 @@ fancy_echo "Installing Bundler to install project-specific Ruby gems ..."
 
 fancy_echo "Installing Rails ..."
   gem install rails --no-document
+  
+# switch to global gemset for these
+  rvm use ${ruby}@global
+  
+fancy_echo "Installing Powder ..."
+  gem install powder
+
+fancy_echo "Installing Foreman ..."
+  gem install foreman
+
+# switch back
+  rvm use default
 
 fancy_echo "Installing GitHub CLI client ..."
   curl http://hub.github.com/standalone -sLo ~/.bin/hub
@@ -142,6 +145,15 @@ fancy_echo "Installing Heroku CLI client ..."
 
 fancy_echo "Installing the heroku-config plugin to pull config variables locally to be used as ENV variables ..."
   heroku plugins:install git://github.com/ddollar/heroku-config.git
+
+fancy_echo "Installing the heroku-accounts plugin to allow you to have personal heroku accounts."
+  heroku plugins:install git://github.com/ddollar/heroku-accounts.git
+    
+fancy_echo "Installing the heroku-pg-extras plugin to allow "
+  heroku plugins:install git://github.com/heroku/heroku-pg-extras.git
+
+fancy_echo "Installing the heroku-pg-transfer plugin to allow pulling DBs from apps."
+  heroku plugins:install https://github.com/ddollar/heroku-pg-transfer
 ### end mac-components/heroku
 
 fancy_echo "Installing rcm, to manage your dotfiles ..."
