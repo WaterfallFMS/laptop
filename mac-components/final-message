@@ -1,11 +1,26 @@
+fancy_echo "####  I N S T A L A T I O N  C O M P L E T E ####"
+
+echo
+
+
 # postgresql: get the Postgresql app
 fancy_echo "Install Postgresql app manually from the URL"
     echo "$ open http://postgresapp.com/"
 
+echo
+
 # heroku accounts set default app
 fancy_echo "Setup up heroku for you work account"
-    fancy_echo "$ heroku accounts:add work --auto"
-    fancy_echo "$ heroku accounts:default work"
+    echo "$ heroku accounts:add work --auto"
+    echo "$ heroku accounts:default work"
+
+echo
+
+# run breakman every once in a while
+fancy_echo "Run breakman to ensure secure rails environments"
+    echo "$ rvm use @global"
+    echo "$ gem update brakeman"
+    echo "$ brakeman <path_to_rails>"
 
 fancy_echo ""
 fancy_echo ""
