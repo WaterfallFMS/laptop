@@ -131,6 +131,9 @@ fancy_echo "Installing Powder ..."
 fancy_echo "Installing Foreman ..."
   gem install foreman
 
+fancy_echo "Installing Breakman ..."
+  gem install brakeman
+
 # switch back
   rvm use default
 
