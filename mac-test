@@ -1,0 +1,57 @@
+#!/bin/sh
+### end common-components/sh-shebang
+
+# Welcome to the thoughtbot laptop script! Be prepared to turn your laptop (or
+# desktop, no haters here) into an awesome development machine.
+
+# This file is auto-generated. Do not edit it by hand unless you know what
+# you're doing. Please see 'CONTRIBUTING.md' for more information.
+### end common-components/header
+
+trap 'ret=$?; test $ret -ne 0 && printf "failed\n\n" >&2; exit $ret' EXIT
+
+set -e
+### end common-components/exit-trap
+
+if [ ! -d "$HOME/.bin/" ]; then
+  mkdir "$HOME/.bin"
+fi
+
+if [[ ":$PATH:" != *":$HOME/.bin:"* ]]; then
+  echo 'export PATH="$HOME/.bin:$PATH"' >> ~/.bash_profile
+  source ~/.bash_profile
+fi
+### end common-components/check-home-bin
+
+fancy_echo() {
+  printf "\n%b\n" "$1"
+}
+### end common-components/shared-functions
+
+fancy_echo "####  I N S T A L A T I O N  C O M P L E T E ####"
+
+echo
+
+
+# postgresql: get the Postgresql app
+fancy_echo "Install Postgresql app manually from the URL"
+    echo "$ open http://postgresapp.com/"
+
+echo
+
+# heroku accounts set default app
+fancy_echo "Setup up heroku for you work account"
+    echo "$ heroku accounts:add work --auto"
+    echo "$ heroku accounts:default work"
+
+echo
+
+# run breakman every once in a while
+fancy_echo "Run breakman to ensure secure rails environments"
+    echo "$ rvm use @global"
+    echo "$ gem update brakeman"
+    echo "$ brakeman <path_to_rails>"
+
+fancy_echo ""
+fancy_echo ""### end mac-components/final-message
+

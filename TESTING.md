@@ -48,3 +48,15 @@ OSX will need to be handled specially:
 3. The resulting test can only be run on an OSX host
 
 [VMware]: http://www.vmware.com/
+
+### Alternative
+
+If you don't mind applying the changes to your local machine (and fixing
+and bad outcomes) then you can use the `mac-test` script.
+
+1. Edit `Manifest.mac-text`
+1. Leave everything up to and including "shared_function"
+1. Add only the script or scripts you want to re-run
+1. Loop
+    1. `.bin/build.sh`
+    1. `bash --login mac-test`
