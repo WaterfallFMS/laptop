@@ -1,0 +1,6 @@
+common-components/sh-shebang
+common-components/header
+common-components/exit-trap
+common-components/check-home-bin
+common-components/shared-functions
+mac-components/final-message
