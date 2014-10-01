@@ -29,7 +29,7 @@ We support:
 
 1) Install zsh and set it as your login shell:
 
-    bash <(wget -qO- https://raw.github.com/thoughtbot/laptop/master/linux-prerequisites)
+    bash <(wget -qO- https://raw.githubusercontent.com/WaterfallFMS/laptop/master/linux-prerequisites)
 
 Install
 -------
@@ -44,7 +44,7 @@ Read, then run the script:
 
 Read, then run the script:
 
-    zsh <(wget -qO- https://raw.github.com/WaterfallFMS/laptop/master/linux)
+    zsh <(wget -qO- https://raw.githubusercontent.com/WaterfallFMS/laptop/master/linux)
 
 What it sets up
 ---------------
