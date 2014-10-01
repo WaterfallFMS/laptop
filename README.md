@@ -38,7 +38,7 @@ Install
 
 Read, then run the script:
 
-    curl -s https://raw.github.com/WaterfallFMS/laptop/master/mac | bash -l
+    curl -s https://raw.githubusercontent.com/WaterfallFMS/laptop/master/mac | bash -l
 
 ### Linux
 
